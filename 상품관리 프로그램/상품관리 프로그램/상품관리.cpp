@@ -1,3 +1,4 @@
+// 김준태 상품관리프로그램 평가 파일
 #include <iostream>
 #include <vector>
 #include <string>
@@ -101,12 +102,13 @@ void addProduct() {
     cout << "가격: ";
     cin >> price;
     cout << "제조사: ";
-    cin >> producer;
+    getline(cin, producer); // 띄어쓰기 허용 getline
 
     if (type == 1) {
         string title, author;
         cout << "책 제목: ";
-        cin.ignore(); getline(cin, title);
+        cin.ignore(); 
+        getline(cin, title);
         cout << "저자: ";
         getline(cin, author);
         products.push_back(new Book(id, price, producer, title, author));
@@ -174,6 +176,7 @@ void listProducts() {
     cout << "\n[전체 상품 목록]" << endl;
     for (Product* p : products) {
         p->showInfo();
+        printf("\n");
     }
 }
 
